@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <style>
+    .but{
+      font-size: 106%;
+    width: 10rem;
+    height: 25px;
+    text-align: center;
+    color: white;
+    background-color: black;
+    }
+    *{
+      text-decoration: none;
+      scroll-behavior: smooth;
+    }
+    
+#result{
+  transform: translateY(20px);
+}
+#result {
+        background: #f9f9f9;
+        padding: 20px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+  </style>
+    <header>
+     
+        <p>تواصل معي</p>
+        <p>خدماتي</p>
+       <span class='hed'>
+
+       </span>
+       
+       <p>المدونة</p>
+       <p>عني</p>
+      </header>
+
+      <div class="main">
+      
+        <span>ليست مجرد كتابة  </span>
+        
+        
+         <span>هي حكاية تروى لجمهورك</span>
+         
+         
+         
+<div class="p"><p> أساعد اصحاب المتجر الأكترونية في جذب العملاء </p>
+
+<p> من خلال كتابتك تروى و تحكى</p></div>
+<span></span>
+<a href="#form">
+<p class="but">أحجز استشارتك الان</p>
+</a>
+</div>
+
+<div class="more">
+
+    <div class="left">
+            <h2>أكثر من خدمة تناسب عملك و تساهم في نجاح مشروعك
+            </h2>
+            <p>أذا كنت تبحث عن محتوى مميز يدعم أهداف عملك فأنت في المكان الصحيح</p>
+        </div>
+        
+        <div class="right">
+            <img src="" alt="" />
+        </div>
+        
+       </div>
+
+
+       <div class="data">
+        <div class='data1'></div>
+        <div class='data2'></div>
+        <div class='data3'></div>
+        <div class='data4'>
+          
+        <p>
+        يلا نبدأ 🤩💗
+          </p>
+          <a href='#' class="but">أحجز استشارتك الان</a>
+        </div>
+        <div class='data5'></div>
+        <div class='data6'>
+         
+        </div>
+       </div>
+
+
+       <div class="myRead">
+        <h2>
+              مقالاتي
+        </h2>
+        <div class="myRead-2">
+  <div class="read-1"></div>
+  <div class="read-2"></div>
+  <div class="read-3"></div>
+  <div class="read-4"></div>
+  <div class="read-5"></div>
+  <div class="read-6"></div>
+        </div>
+        <div class="a">
+        <a href="">
+          المزيد
+        </a>
+        </div>
+  
+      </div>
+ 
+<form id="form" action="login.php" method="post">
+  <h2>لديك مشروع وتريد العمل معنا؟</h2>
+  <div class="input">
+      <input type="text" name="email1" placeholder="عرفنا عليك الأول؟" required />
+      <input type="email" name="email2" placeholder="ايميلك عشان نتواصل معك" required />
+  </div>
+  <span>
+      <input type="submit" name="submit" value="احجز لي موعد الآن" />
+  </span>
+  <div id="result"></div>
+</form>
+  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+      $('#form').on('submit', function(event) {
+          event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+
+          // عرض رسالة معالجة الطلب
+          $('#result').html('جاري معالجة الطلب...').show();
+
+          $.ajax({
+              url: 'login.php',
+              type: 'post',
+              data: $(this).serialize(),
+              success: function(response) {
+                  // عرض الرسالة من السيرفر بعد تلقي الرد
+                  $('#result').html('تم استلام الرد: ' + response);
+              },
+              error: function() {
+                  $('#result').html('حدث خطأ أثناء معالجة الطلب.');
+              }
+          });
+      });
+  });
+</script>
+
+      <div class='Right'>
+        <h1>
+               جميع الحقوق محفوظه الى
+        </h1>
+        <p> 2024 &copy; fullstack web Developer: OS SPHERE</p>
+      </div>
+     
+</body>
+</html>
