@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['loggedin'] = true;
-        header('Location: admin.php');
+        header('Location: admin.html');
     } else {
         echo 'اسم المستخدم أو كلمة المرور غير صحيحة';
     }
