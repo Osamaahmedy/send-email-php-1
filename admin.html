@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>admin of email sender</title>
+    <style>
+        #loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     
@@ -14,18 +21,23 @@
         <button type="submit">إرسال</button>
     </form>
     
+    <div id="loading">جاري الإرسال...</div>
     <div id="result"></div>
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $('#emailForm').on('submit', function (e) {
             e.preventDefault();
+            $('#loading').show(); // Show loading message
             $.ajax({
                 url: 'sendEmails.php',
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function (response) {
                     $('#result').html(response);
+                },
+                complete: function() {
+                    $('#loading').hide(); // Hide loading message
                 }
             });
         });

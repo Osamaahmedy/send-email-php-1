@@ -33,13 +33,13 @@
                 $mail->addAddress($row['email2'], $row['email1']);
                 $mail->Subject = 'Welcome to Our Site';
                 $mail->isHTML(true);
-                $mail->Body = "<br>{$message}</br> {$row['email1']},<br>{$message1}</br>"; // إضافة نص الرسالة هنا
+                $mail->Body = "<p>{$message}</p> {$row['email1']},<br>{$message1}</p>"; // إضافة نص الرسالة هنا
 
                 // إرسال البريد الإلكتروني
                 if (!$mail->send()) {
                     echo "Failed to send email to {$row['email1']}. Mailer Error: {$mail->ErrorInfo}<br>";
                 } else {
-                    echo "Email sent to {$row['email1']} successfully!<br>";
+                    echo "<p>Email sent to {$row['email1']} successfully!</p>";
                 }
 
                 // إعادة تعيين العناوين قبل إرسال البريد الإلكتروني التالي
